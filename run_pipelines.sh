@@ -11,5 +11,5 @@ module load anaconda3/2022.5
 # Activate the environment we created with setup_python_env.sh
 conda activate hf
 
-python pipelines.py
+python -u pipelines.py
 

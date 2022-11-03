@@ -184,6 +184,7 @@ translator = pipeline("translation_en_to_de", model="Helsinki-NLP/opus-mt-en-de"
 
 outputs = translator(text, clean_up_tokenization_spaces=True, min_length=100)
 print(wrapper.fill(outputs[0]["translation_text"]))
+print("\n\n")
 
 # We can see that the text is clearly not perfectly translated, but the core
 # meaning stays the same. Another cool application of translation models is
@@ -208,6 +209,7 @@ outputs = zero_shot_classifier(text, candidate_labels=classes)
 
 print("Zero Shot Classification:\n")
 print(f"Input Text: {text}\n")
-print(outputs)
+from pprint import pprint
+pprint(outputs)
 print("\n\n")
 
