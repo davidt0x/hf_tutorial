@@ -20,6 +20,4 @@ ner_pipeline = pipeline("ner")
 summarization_pipeline = pipeline("summarization")
 qa_pipeline = pipeline("question-answering")
 translator = pipeline("translation_en_to_de", model="Helsinki-NLP/opus-mt-en-de")
-zero_shot_classifier = pipeline(
-    "zero-shot-classification", model="vicgalle/xlm-roberta-large-xnli-anli"
-)
+zero_shot_classifier = pipeline("zero-shot-classification")
