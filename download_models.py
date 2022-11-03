@@ -15,9 +15,21 @@ if "/scratch" not in hf_cache_home:
 
 
 # Simply instatiating pipelines will trigger downloading the models
-sentiment_pipeline = pipeline("text-classification")
-ner_pipeline = pipeline("ner")
-summarization_pipeline = pipeline("summarization")
-qa_pipeline = pipeline("question-answering")
+# The specification of models can be left off, however, in production
+# this is not a good practice as the default models can change and
+# unexpected behaviour can occur. It is also best to specify a model
+# revision has well.
+sentiment_pipeline = pipeline(
+    "text-classification", model="distilbert-base-uncased-finetuned-sst-2-english"
+)
+ner_pipeline = pipeline("ner", model="dbmdz/bert-large-cased-finetuned-conll03-english")
+qa_pipeline = pipeline(
+    "question-answering", model="distilbert-base-cased-distilled-squad"
+)
+summarization_pipeline = pipeline(
+    "summarization", model="sshleifer/distilbart-cnn-12-6"
+)
 translator = pipeline("translation_en_to_de", model="Helsinki-NLP/opus-mt-en-de")
-zero_shot_classifier = pipeline("zero-shot-classification")
+zero_shot_classifier = pipeline(
+    "zero-shot-classification", model="facebook/bart-large-mnli"
+)

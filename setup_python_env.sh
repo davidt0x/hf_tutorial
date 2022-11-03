@@ -17,3 +17,7 @@ conda create -n hf python=3.9 -y
 # https://pytorch.org/get-started/locally/. This can also be installed with conda
 # as well but there seems to be issues with torch 1.13 conda packages at the moment.
 pip3 install torch torchvision torchaudio transformers[sentencepiece] datasets --extra-index-url https://download.pytorch.org/whl/cu116
+
+# Also install the hugging face command line interface, useful for inspect your
+# cache and deleting things.
+pip3 install huggingface_hub[cli]
